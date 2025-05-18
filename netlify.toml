@@ -1,0 +1,9 @@
+[build]
+  command   = "hugo --gc --minify"   # 或者你原来用的 hugo 命令
+  publish   = "public"
+
+[build.environment]
+  # 填你在本机上用的 Hugo 版本号
+  HUGO_VERSION = "0.147.3"
+  # 如果你需要扩展版（带 Sass/SCSS 支持），还可以加：
+  # HUGO_EXTENDED = "true"
