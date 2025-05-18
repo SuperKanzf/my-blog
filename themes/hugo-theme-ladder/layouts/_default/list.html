@@ -3,14 +3,14 @@
   <div>
     <div class="blog-list">
       {{ range .Paginator.Pages }}
-      <article>
-        <div class="blog-card">
-          <h3><a href="{{ .RelPermalink }}">{{ .Params.title }}</a></h3>
-          {{ partial "blog/meta.html" . }}
-          {{ .Summary }}
-        </div>
-      </article>
-      {{ end -}}
+        <article>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{/* 只有当不是首页时才显示摘要 */}}
+          {{ if not .IsHome }}
+            <div class="summary">{{ .Summary }}</div>
+          {{ end }}
+        </article>
+      {{ end }}
     </div>
     {{ if gt .Paginator.TotalPages 1 }}
     <div class="paginator">
